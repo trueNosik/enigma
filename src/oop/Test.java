@@ -5,7 +5,7 @@ public class Test {
 	public static void main(String[] args) {
 		String key = "key";
 		String text = "ztext";
-				
+				  
 		Encoder encoder1 = CoderFactory.createCaesarEncoder(key);
 		String encodedText1 = encoder1.encode(text);
 		System.out.println(encodedText1);
