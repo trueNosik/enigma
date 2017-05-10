@@ -16,6 +16,13 @@ public class EnigmaProcedural {
 		char[][] array = convertAlphabetToArray(alphabet);
 		return processSourceTextViaAlphabet(sourceText, array, true);
 	}
+	
+	public static String decode(String encryptedText, String keyWord) {
+		String normilizedKeyWord = normilizeKeyWord(keyWord);
+		String alphabet = createAlphabet(normilizedKeyWord);
+		char[][] array = convertAlphabetToArray(alphabet);
+		return processSourceTextViaAlphabet(encryptedText, array, false);
+	}
 
 	private static String processSourceTextViaAlphabet(String sourceText, char[][] array, boolean encode) {
 		StringBuilder result = new StringBuilder();
@@ -96,12 +103,5 @@ public class EnigmaProcedural {
 			}
 		}
 		return result.toString();
-	}
-
-	public static String decode(String encryptedText, String keyWord) {
-		String normilizedKeyWord = normilizeKeyWord(keyWord);
-		String alphabet = createAlphabet(normilizedKeyWord);
-		char[][] array = convertAlphabetToArray(alphabet);
-		return processSourceTextViaAlphabet(encryptedText, array, false);
 	}
 }

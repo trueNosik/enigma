@@ -1,7 +1,11 @@
-package oop;
+package oop.impl;
+
+import oop.AlphabetConvertor;
+import oop.AlphabetCreator;
+import oop.Encoder;
+import oop.KeyNormalizer;
 
 public class TrisemusEncoder extends TrisemusAbstractCoder implements Encoder {
-
 	public TrisemusEncoder(String key) {
 		super(key);
 	}

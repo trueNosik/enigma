@@ -1,7 +1,8 @@
-package oop;
+package oop.impl;
+
+import oop.AlphabetCreator;
 
 public class VisionnaireAlphabetCreator implements AlphabetCreator {
-
 	@Override
 	public String createAlphabet(String normilizedKeyWord) {
 		StringBuilder defaultAlphabet = new StringBuilder();
@@ -18,7 +19,7 @@ public class VisionnaireAlphabetCreator implements AlphabetCreator {
 
 	private String shiftAlphabetAtOneSymbol(StringBuilder defaultAlphabet) {
 		StringBuilder result = new StringBuilder(defaultAlphabet);
-		result.insert(0, ' ');
+		result.insert(0, '\u0000');
 		for (int i = 0; i < defaultAlphabet.length(); i++) {
 			result.append(defaultAlphabet.charAt(i));
 			for (int j = 0 + i; j < defaultAlphabet.length(); j++) {

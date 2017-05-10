@@ -1,4 +1,8 @@
-package oop;
+package oop.impl;
+
+import oop.AlphabetConvertor;
+import oop.AlphabetCreator;
+import oop.KeyNormalizer;
 
 abstract class TrisemusAbstractCoder {
 	private String key;

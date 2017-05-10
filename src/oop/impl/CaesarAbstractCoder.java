@@ -1,4 +1,7 @@
-package oop;
+package oop.impl;
+
+import oop.AlphabetConvertor;
+import oop.AlphabetCreator;
 
 abstract class CaesarAbstractCoder {
 	private String key;

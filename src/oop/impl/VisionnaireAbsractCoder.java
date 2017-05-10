@@ -1,12 +1,17 @@
-package oop;
+package oop.impl;
+
+import oop.AlphabetConvertor;
+import oop.AlphabetCreator;
+import oop.KeyNormalizer;
 
 public abstract class VisionnaireAbsractCoder {
 	private String key;
+	private String sourceText;
 	protected final char[][] array;
 	
 	private KeyNormalizer keyNormalizer = new MatchKeyLengthToTextLength();
 	private AlphabetCreator alphabetCreator = new VisionnaireAlphabetCreator();
-	private AlphabetConvertor alphabetConvertor = new VisionnaireAplhabetConverter();
+	private AlphabetConvertor alphabetConvertor = new VisionnaireAlphabetConverter();
 	
 	public VisionnaireAbsractCoder(String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
 			AlphabetConvertor alphabetConvertor) {
@@ -25,7 +30,7 @@ public abstract class VisionnaireAbsractCoder {
 	}
 
 	private char[][] createArray() {
-		String normilizedKeyWord = keyNormalizer.normilizeKeyWord(key);
+		String normilizedKeyWord = keyNormalizer.normilizeKeyWord(key, sourceText);
 		String alphabet = alphabetCreator.createAlphabet(normilizedKeyWord);
 		return alphabetConvertor.convertAlphabetToArray(alphabet);
 	}
@@ -34,28 +39,25 @@ public abstract class VisionnaireAbsractCoder {
 		return key;
 	}
 	
+	public String getSourceText() {
+		return sourceText;
+	}
+	
+	public String getNormilizedKeyWord() {
+		return keyNormalizer.normilizeKeyWord(key, sourceText);
+	}
+	
 	protected String processSourceTextViaAlphabet(String sourceText) {
 		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < sourceText.length(); i++) {
 			char ch = sourceText.charAt(i);
-			char encodedCh = findCharInArray(ch);
+			char encodedCh = findCharInArray(ch, getNormilizedKeyWord());
 			result.append(encodedCh);
 		}
 		return result.toString();
 	}
 
-	private char findCharInArray(char ch) {
-		for (int i = 0; i < array.length; i++) {
-			for (int j = 0; j < array[i].length; j++) {
-				if (array[i][j] == ch) {
-					return processChar(i, j);
-				}
-			}
-		}
-		System.err.println("Encode Error at: " + ch );
-		System.exit(1);
-		return 0;
-	}
-	
-	protected abstract char processChar(int i, int j);
+	protected abstract char findCharInArray(char ch, String normilizedKeyWord);
+		
+	protected abstract char processChar(int i, int j, String normilizedKeyWord);
 }

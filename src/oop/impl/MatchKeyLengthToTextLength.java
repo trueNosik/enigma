@@ -1,8 +1,10 @@
-package oop;
+package oop.impl;
+
+import oop.KeyNormalizer;
 
 public class MatchKeyLengthToTextLength implements KeyNormalizer {
-
-	public static String normilizeKeyWord(String keyWord, String sourceText) {
+	@Override
+	public String normilizeKeyWord(String keyWord, String sourceText) {
 		StringBuilder result = new  StringBuilder();
 		for (int i = 0; i < sourceText.length(); i++) {
 			if (i < keyWord.length()) {

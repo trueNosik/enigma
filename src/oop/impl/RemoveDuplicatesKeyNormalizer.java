@@ -1,7 +1,8 @@
-package oop;
+package oop.impl;
+
+import oop.KeyNormalizer;
 
 public class RemoveDuplicatesKeyNormalizer implements KeyNormalizer{
-
 	public String normilizeKeyWord(String keyWord) {
 		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < keyWord.length(); i++) {
@@ -11,5 +12,11 @@ public class RemoveDuplicatesKeyNormalizer implements KeyNormalizer{
 			}
 		}
 		return result.toString();
+	}
+
+	@Override
+	public String normilizeKeyWord(String keyWord, String sourceText) {
+		// Do nothing
+		return null;
 	}
 }

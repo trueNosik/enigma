@@ -1,5 +1,18 @@
 package oop;
 
+import oop.impl.CaesarAlphabetConverter;
+import oop.impl.CaesarAlphabetCreator;
+import oop.impl.CaesarDecoder;
+import oop.impl.CaesarEncoder;
+import oop.impl.MatchKeyLengthToTextLength;
+import oop.impl.RemoveDuplicatesKeyNormalizer;
+import oop.impl.TrisemusAlphabetConvertor;
+import oop.impl.TrisemusAlphabetCreator;
+import oop.impl.TrisemusDecoder;
+import oop.impl.TrisemusEncoder;
+import oop.impl.VisionnaireDecoder;
+import oop.impl.VisionnaireEncoder;
+
 public class CoderFactory {
 	public static Encoder createTrisemusEncoder(String key) {
 		return new TrisemusEncoder(key, 

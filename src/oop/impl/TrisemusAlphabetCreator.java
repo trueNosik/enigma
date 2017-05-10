@@ -1,7 +1,8 @@
-package oop;
+package oop.impl;
+
+import oop.AlphabetCreator;
 
 public class TrisemusAlphabetCreator implements AlphabetCreator{
-
 	public String createAlphabet(String normilizedKeyWord) {
 		StringBuilder result = new StringBuilder(normilizedKeyWord);
 		for (char chL = 'a'; chL <= 'z'; chL++) {

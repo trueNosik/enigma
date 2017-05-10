@@ -1,7 +1,10 @@
-package oop;
+package oop.impl;
+
+import oop.AlphabetConvertor;
+import oop.AlphabetCreator;
+import oop.Decoder;
 
 public class CaesarDecoder extends CaesarAbstractCoder implements Decoder {
-
 	public CaesarDecoder(String key) {
 		super(key);
 	}

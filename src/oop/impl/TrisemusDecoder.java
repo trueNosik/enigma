@@ -1,7 +1,11 @@
-package oop;
+package oop.impl;
+
+import oop.AlphabetConvertor;
+import oop.AlphabetCreator;
+import oop.Decoder;
+import oop.KeyNormalizer;
 
 public class TrisemusDecoder extends TrisemusAbstractCoder implements Decoder {
-
 	public TrisemusDecoder(String key) {
 		super(key);
 	}
@@ -18,7 +22,10 @@ public class TrisemusDecoder extends TrisemusAbstractCoder implements Decoder {
 
 	@Override
 	protected char processChar(int i, int j) {
-		// TO DO
-		return 0;
+		if (i > 0) {
+			return array[i - 1][j];
+		} else {
+			return array[array.length - 1][j];
+		}
 	}
 }

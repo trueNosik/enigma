@@ -1,7 +1,8 @@
-package oop;
+package oop.impl;
 
-public class CaesarAlphabetCreator implements AlphabetCreator {
-	
+import oop.AlphabetCreator;
+
+public class CaesarAlphabetCreator implements AlphabetCreator {	
 	@Override
 	public String createAlphabet(String key) {
 		StringBuilder defaultAlphabet = new StringBuilder();

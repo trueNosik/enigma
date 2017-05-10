@@ -1,7 +1,6 @@
-package oop;
+package oop.impl;
 
-public class RemoveDuplicatesKeyAndReverseNormalizer extends RemoveDuplicatesKeyNormalizer{
-	
+public class RemoveDuplicatesKeyAndReverseNormalizer extends RemoveDuplicatesKeyNormalizer{	
 	@Override
 	public String normilizeKeyWord(String keyWord) {
 		String key = super.normilizeKeyWord(keyWord);

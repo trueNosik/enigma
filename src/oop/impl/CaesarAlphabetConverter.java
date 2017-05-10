@@ -1,12 +1,14 @@
-package oop;
+package oop.impl;
 
-public class TrisemusAlphabetConvertor implements AlphabetConvertor{
+import oop.AlphabetConvertor;
 
+public class CaesarAlphabetConverter implements AlphabetConvertor {
+	@Override
 	public char[][] convertAlphabetToArray(String alphabet) {
-		char[][] array = new char[10][9];
+		char[][] array = new char [2][90];
 		for (int i = 0; i < array.length; i++) {
 			for (int j = 0; j < array[i].length; j++) {
-				int index = i * (array.length - 1) + j;
+				int index = i * (array[i].length) + j;
 				array[i][j] = alphabet.charAt(index);
 			}
 		}
