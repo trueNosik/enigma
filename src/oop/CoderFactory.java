@@ -1,7 +1,6 @@
 package oop;
 
 public class CoderFactory {
-
 	public static Encoder createTrisemusEncoder(String key) {
 		return new TrisemusEncoder(key, 
 				new RemoveDuplicatesKeyNormalizer(), 
@@ -26,5 +25,19 @@ public class CoderFactory {
 		return new CaesarDecoder(key, 
 				new CaesarAlphabetCreator(),
 				new CaesarAlphabetConverter());
+	}
+	
+	public static Encoder createVisionnaireEncoder(String key) {
+		return new VisionnaireEncoder(key, 
+				new MatchKeyLengthToTextLength(), 
+				new TrisemusAlphabetCreator(),
+				new TrisemusAlphabetConvertor());
+	}
+	
+	public static Decoder createVisionnaireDecoder(String key) {
+		return new VisionnaireDecoder(key, 
+				new MatchKeyLengthToTextLength(), 
+				new TrisemusAlphabetCreator(),
+				new TrisemusAlphabetConvertor());
 	}
 }

@@ -1,6 +1,7 @@
 package oop;
 
 public class CaesarAlphabetCreator implements AlphabetCreator {
+	
 	@Override
 	public String createAlphabet(String key) {
 		StringBuilder defaultAlphabet = new StringBuilder();
@@ -20,10 +21,10 @@ public class CaesarAlphabetCreator implements AlphabetCreator {
 	private String createShiftedAlphabet(String defaultAlphabet, String key) {
 		StringBuilder result = new StringBuilder();
 		StringBuilder temp = new StringBuilder();
-		char startingCharacter = key.charAt(0);
+		char firstCharacter = key.charAt(0);
 		for (int i = 0; i < defaultAlphabet.length(); i++) {
 			char ch = defaultAlphabet.charAt(i);
-			if (ch == startingCharacter) {
+			if (ch == firstCharacter) {
 				for (; i < defaultAlphabet.length(); i++) {
 					ch = defaultAlphabet.charAt(i);
 					result.append(ch);
@@ -34,11 +35,5 @@ public class CaesarAlphabetCreator implements AlphabetCreator {
 		}
 		result.append(temp);
 		return result.toString();
-	}
-	
-	public static void main(String[] args){
-		String key = "key";
-		AlphabetCreator alphabet = new CaesarAlphabetCreator();
-		alphabet.createAlphabet(key);
 	}
 }

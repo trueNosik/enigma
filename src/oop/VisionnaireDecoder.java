@@ -1,12 +1,12 @@
 package oop;
 
-public class TrisemusDecoder extends TrisemusAbstractCoder implements Decoder {
+public class VisionnaireDecoder extends VisionnaireAbsractCoder implements Decoder {
 
-	public TrisemusDecoder(String key) {
+	public VisionnaireDecoder(String key) {
 		super(key);
 	}
-
-	public TrisemusDecoder(String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
+	
+	public VisionnaireDecoder(String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
 			AlphabetConvertor alphabetConvertor) {
 		super(key, keyNormalizer, alphabetCreator, alphabetConvertor);
 	}
@@ -17,7 +17,7 @@ public class TrisemusDecoder extends TrisemusAbstractCoder implements Decoder {
 	}
 
 	@Override
-	protected char processChar(int i, int j) {
+	protected char processChar(int i, int j) {	
 		// TO DO
 		return 0;
 	}
