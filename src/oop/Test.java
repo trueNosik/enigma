@@ -1,7 +1,6 @@
 package oop;
 
 public class Test {
-
 	public static void main(String[] args) {
 		String key = "key";
 		String text = "ztext";
@@ -19,6 +18,12 @@ public class Test {
 		
 		Decoder decoder2 = CoderFactory.createTrisemusDecoder(key);
 		System.out.println(decoder2.decode(encodedText2));
+		
+		Encoder encoder3 = CoderFactory.createVisionnaireEncoder(key);
+		String encodedText3 = encoder3.encode(text);
+		System.out.println(encodedText3);
+		
+		Decoder decoder3 = CoderFactory.createVisionnaireDecoder(key);
+		System.out.println(decoder3.decode(encodedText3));
 	}
-
 }
