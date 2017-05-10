@@ -18,11 +18,13 @@ public class VisionnaireAlphabetCreator implements AlphabetCreator {
 
 	private String shiftAlphabetAtOneSymbol(StringBuilder defaultAlphabet) {
 		StringBuilder result = new StringBuilder(defaultAlphabet);
-		for (int j = 0; j < defaultAlphabet.length()-1; j++){
-			for (int i = 1 + j; i < defaultAlphabet.length(); i++) {
-				result.append(defaultAlphabet.charAt(i));
+		result.insert(0, ' ');
+		for (int i = 0; i < defaultAlphabet.length(); i++) {
+			result.append(defaultAlphabet.charAt(i));
+			for (int j = 0 + i; j < defaultAlphabet.length(); j++) {
+				result.append(defaultAlphabet.charAt(j));
 			}
-			for (int k = 0; k <= j; k++) {
+			for (int k = 0; k < i; k++) {
 				result.append(defaultAlphabet.charAt(k));
 			}
 		}
