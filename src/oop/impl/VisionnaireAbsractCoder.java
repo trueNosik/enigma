@@ -13,10 +13,11 @@ public abstract class VisionnaireAbsractCoder {
 	private AlphabetCreator alphabetCreator = new VisionnaireAlphabetCreator();
 	private AlphabetConvertor alphabetConvertor = new VisionnaireAlphabetConverter();
 	
-	public VisionnaireAbsractCoder(String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
+	public VisionnaireAbsractCoder(String sourceText, String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
 			AlphabetConvertor alphabetConvertor) {
 		super();
 		this.key = key;
+		this.sourceText = sourceText;
 		this.array = createArray();
 		this.keyNormalizer = keyNormalizer;
 		this.alphabetCreator = alphabetCreator;
@@ -30,8 +31,7 @@ public abstract class VisionnaireAbsractCoder {
 	}
 
 	private char[][] createArray() {
-		String normilizedKeyWord = keyNormalizer.normilizeKeyWord(key, sourceText);
-		String alphabet = alphabetCreator.createAlphabet(normilizedKeyWord);
+		String alphabet = alphabetCreator.createAlphabet(key);
 		return alphabetConvertor.convertAlphabetToArray(alphabet);
 	}
 
@@ -50,14 +50,17 @@ public abstract class VisionnaireAbsractCoder {
 	protected String processSourceTextViaAlphabet(String sourceText) {
 		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < sourceText.length(); i++) {
-			char ch = sourceText.charAt(i);
-			char encodedCh = findCharInArray(ch, getNormilizedKeyWord());
+			char chFromSourceText = sourceText.charAt(i);
+			char chFromKey = getNormilizedKeyWord().charAt(i);
+			char encodedCh = findCharInArray(chFromSourceText, chFromKey);
 			result.append(encodedCh);
 		}
 		return result.toString();
 	}
 
-	protected abstract char findCharInArray(char ch, String normilizedKeyWord);
+	protected abstract char findCharInArray(char chFromSourceText, char chFromKey);
 		
-	protected abstract char processChar(int i, int j, String normilizedKeyWord);
+	protected char processChar(int i, int j) {
+		return array[i][j];
+	}
 }

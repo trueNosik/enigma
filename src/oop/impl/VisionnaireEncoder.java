@@ -10,31 +10,29 @@ public class VisionnaireEncoder extends VisionnaireAbsractCoder implements Encod
 		super(key);
 	}
 	
-	public VisionnaireEncoder(String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
+	public VisionnaireEncoder(String sourceText, String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
 			AlphabetConvertor alphabetConvertor) {
-		super(key, keyNormalizer, alphabetCreator, alphabetConvertor);
+		super(sourceText, key, keyNormalizer, alphabetCreator, alphabetConvertor);
 	}
 
 	@Override
-	public String encode(String text) {
-		return processSourceTextViaAlphabet(text);
+	public String encode(String sourceText) {
+		return processSourceTextViaAlphabet(sourceText);
 	}
 
 	@Override
-	protected char findCharInArray(char ch, String normilizedKeyWord) {
+	protected char findCharInArray(char chFromSourceText, char chFromKey) {
 		for (int j = 0; j < array[0].length; j++) {
-			if (array[0][j] == ch) {
-				return processChar(0, j, normilizedKeyWord);
+			if (array[0][j] == chFromSourceText) {
+				for (int i = 0; i < array[0].length; i++){
+					if (array[i][0] == chFromKey) {
+						return processChar(i, j);
+					}
+				}	
 			}	
 		}
-		System.err.println("Encode Error at: " + ch);
+		System.err.println("Encode Error at: " + chFromSourceText);
 		System.exit(1);
-		return 0;
-	}
-
-	@Override
-	protected char processChar(int i, int j, String normilizedKeyWord) { // ztext -> jxchx keyke
-		// TODO Auto-generated method stub
 		return 0;
 	}
 }

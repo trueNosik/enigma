@@ -10,9 +10,9 @@ public class VisionnaireDecoder extends VisionnaireAbsractCoder implements Decod
 		super(key);
 	}
 	
-	public VisionnaireDecoder(String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
+	public VisionnaireDecoder(String sourceText, String key, KeyNormalizer keyNormalizer, AlphabetCreator alphabetCreator,
 			AlphabetConvertor alphabetConvertor) {
-		super(key, keyNormalizer, alphabetCreator, alphabetConvertor);
+		super(sourceText, key, keyNormalizer, alphabetCreator, alphabetConvertor);
 	}
 
 	@Override
@@ -21,20 +21,18 @@ public class VisionnaireDecoder extends VisionnaireAbsractCoder implements Decod
 	}
 
 	@Override
-	protected char findCharInArray(char ch, String normilizedKeyWord) {
-		for (int j = 0; j < array[j].length; j++) {
-			if (array[j][0] == ch) {
-				return processChar(j, 0, normilizedKeyWord);
+	protected char findCharInArray(char chFromSourceText, char chFromKey) {
+		for (int j = 0; j < array[0].length; j++) {
+			if (array[j][0] == chFromKey) {
+				for (int i = 0; i < array[0].length; i++){
+					if (array[j][i] == chFromSourceText) {
+						return processChar(0, i);
+					}
+				}	
 			}	
 		}
-		System.err.println("Encode Error at: " + ch);
+		System.err.println("Encode Error at: " + chFromSourceText);
 		System.exit(1);
-		return 0;
-	}
-
-	@Override
-	protected char processChar(int i, int j, String normilizedKeyWord) { // jxchx -> ztext keyke
-		// TODO Auto-generated method stub
 		return 0;
 	}
 }

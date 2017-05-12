@@ -10,6 +10,8 @@ import oop.impl.TrisemusAlphabetConvertor;
 import oop.impl.TrisemusAlphabetCreator;
 import oop.impl.TrisemusDecoder;
 import oop.impl.TrisemusEncoder;
+import oop.impl.VisionnaireAlphabetConverter;
+import oop.impl.VisionnaireAlphabetCreator;
 import oop.impl.VisionnaireDecoder;
 import oop.impl.VisionnaireEncoder;
 
@@ -40,17 +42,17 @@ public class CoderFactory {
 				new CaesarAlphabetConverter());
 	}
 	
-	public static Encoder createVisionnaireEncoder(String key) {
-		return new VisionnaireEncoder(key, 
+	public static Encoder createVisionnaireEncoder(String sourceText, String key) {
+		return new VisionnaireEncoder(sourceText, key, 
 				new MatchKeyLengthToTextLength(), 
-				new TrisemusAlphabetCreator(),
-				new TrisemusAlphabetConvertor());
+				new VisionnaireAlphabetCreator(),
+				new VisionnaireAlphabetConverter());
 	}
 	
-	public static Decoder createVisionnaireDecoder(String key) {
-		return new VisionnaireDecoder(key, 
+	public static Decoder createVisionnaireDecoder(String sourceText, String key) {
+		return new VisionnaireDecoder(sourceText, key, 
 				new MatchKeyLengthToTextLength(), 
-				new TrisemusAlphabetCreator(),
-				new TrisemusAlphabetConvertor());
+				new VisionnaireAlphabetCreator(),
+				new VisionnaireAlphabetConverter());
 	}
 }

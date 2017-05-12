@@ -4,7 +4,7 @@ import oop.AlphabetCreator;
 
 public class VisionnaireAlphabetCreator implements AlphabetCreator {
 	@Override
-	public String createAlphabet(String normilizedKeyWord) {
+	public String createAlphabet(String key) {
 		StringBuilder defaultAlphabet = new StringBuilder();
 		for (char chL = 'a'; chL <= 'z'; chL++) {
 			defaultAlphabet.append(chL);

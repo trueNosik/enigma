@@ -3,7 +3,7 @@ package oop;
 public class Test {
 	public static void main(String[] args) {
 		String key = "key";
-		String text = "ztext";
+		String text = "text Hello world!";
 				  
 		Encoder encoder1 = CoderFactory.createCaesarEncoder(key);
 		String encodedText1 = encoder1.encode(text);
@@ -19,11 +19,11 @@ public class Test {
 		Decoder decoder2 = CoderFactory.createTrisemusDecoder(key);
 		System.out.println(decoder2.decode(encodedText2));
 		
-		Encoder encoder3 = CoderFactory.createVisionnaireEncoder(key);
+		Encoder encoder3 = CoderFactory.createVisionnaireEncoder(text, key);
 		String encodedText3 = encoder3.encode(text);
 		System.out.println("Visionnaire cipher: " + encodedText3);
 		
-		Decoder decoder3 = CoderFactory.createVisionnaireDecoder(key);
+		Decoder decoder3 = CoderFactory.createVisionnaireDecoder(text, key);
 		System.out.println(decoder3.decode(encodedText3));
 	}
 }
