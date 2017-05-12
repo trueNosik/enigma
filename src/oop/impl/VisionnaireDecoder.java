@@ -16,8 +16,8 @@ public class VisionnaireDecoder extends VisionnaireAbsractCoder implements Decod
 	}
 
 	@Override
-	public String decode(String text) {
-		return processSourceTextViaAlphabet(text);
+	public String decode(String sourceText) {
+		return processSourceTextViaAlphabet(sourceText);
 	}
 
 	@Override
