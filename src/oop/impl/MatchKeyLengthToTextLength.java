@@ -15,7 +15,7 @@ public class MatchKeyLengthToTextLength implements KeyNormalizer {
 		}
 		return result.toString();
 	}
-	/**Do nothing for VisionnaireCode,r use other key normilizer*/
+	/**Do nothing for VisionnaireCoder, use other key normilizer*/
 	@Override
 	public String normilizeKeyWord(String keyWord) {
 		// Do nothing
