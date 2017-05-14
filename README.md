@@ -1,1 +1,1 @@
-# enigmthis app ecnript/decript some text
+# this code ecnript/decript some text
