@@ -1,1 +1,1 @@
-# this code ecnript/decript some text
+# this code encript/decript some text
